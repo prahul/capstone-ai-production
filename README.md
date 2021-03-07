@@ -1,5 +1,8 @@
-# capstone-ai-production
+# Capstone-AI-Production
 Capstone project for ML
+
+# Run project
+To run the project using Jupyter Notebook, open capstoneproject.ipynb in jupyter notebook and run the same.
 
 # Create Docker Image
 1. Create a directory "capstone-proj-docker" on your computer at any convient location. e.g Users/yourid/Documents/capstone-proj-docker
