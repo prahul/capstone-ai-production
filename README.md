@@ -8,7 +8,8 @@ Project Highlights
 4. Run all tests as a single script.
 5. Visualization and comparison using visualization.
 6. Dockerize the projct to be deployed on a container platform.
-7. Documentation to run the project using popular Jupyter Notebook or from command line.
+7. Mechanism for performance monitoring through process time and profilers and more.
+8. Documentation to run the project using popular Jupyter Notebook or from command line.
 
 # Run project
 To run the project using Jupyter Notebook, open capstoneproject.ipynb in jupyter notebook and run the same.
