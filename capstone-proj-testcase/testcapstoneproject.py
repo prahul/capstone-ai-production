@@ -3,20 +3,23 @@ from capstoneproject import *
 import unittest
 
 class TestModelPredict(unittest.TestCase):
-    def test_mp_info(self):
-        model_predict("false","info")
+    def test_load_data(self):
+        #Unit test for data and logging
+        dataset = load_data("false","info")
         self.assertEqual(1, 1)
-    def test_mp_warn(self):
-        model_predict("false","warn")
+    def test_data_visualization(self):
+        #Unit tests for visualization
+        dataset = load_data("false","info")
+        data_visualization("false","info",dataset)
         self.assertEqual(1, 1)
-    def test_mp_error(self):
-        model_predict("false","error")
+    def test_datavalid_models_predict(self):
+        #Unit tests for seperate data set and models
+        dataset = load_data("false","info")
+        datavalid_models_predict("false","info",dataset)
         self.assertEqual(1, 1)
-    def test_mp_debug(self):
-        model_predict("false","debug")
-        self.assertEqual(1, 1)
-    def test_mp_critical(self):
-        model_predict("false","critical")
+    def test_api(self):
+        #Unit test for api
+        data_model_predict()
         self.assertEqual(1, 1)
 
 if __name__ == '__main__':
