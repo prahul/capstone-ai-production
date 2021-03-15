@@ -5,11 +5,13 @@ Project Highlights
 1. Select best model from multiple models and make predictions.
 2. Test driven development with Unit Tests.
 3. Effetive logging and unit tests for logging.
-4. Run all tests as a single script.
-5. Visualization and comparison using visualization.
-6. Dockerize the projct to be deployed on a container platform.
-7. Mechanism for performance monitoring through process time and profilers and more.
-8. Documentation to run the project using popular Jupyter Notebook or from command line.
+4. There are unit tests to run the script api.
+5. Unit tests for the models.
+6. Run all tests as a single script.
+7. Visualization and comparison using visualization.
+8. Dockerize the projct to be deployed on a container platform.
+9. Mechanism for performance monitoring through process time and profilers and more.
+10. Documentation to run the project using popular Jupyter Notebook or from command line.
 
 # Run project
 To run the project using Jupyter Notebook, open capstoneproject.ipynb in jupyter notebook and run the same.
