@@ -18,14 +18,16 @@ import logging
 import time
 import cProfile
 
-def model_predict(test,loglevel):
+def load_data(test,loglevel):
+    
+    #This fuction provides data ingestion automation
     
     # Start time of the function
     start_time = time.time()
         
     p = cProfile.Profile()
 
-    # Enable profiling
+    # Enable profiling for performance monitoring
     if test=="profile":
         p.enable()
     
@@ -58,6 +60,50 @@ def model_predict(test,loglevel):
     dataset = read_csv(url, names=sepalname)
     logger.info("Dataset loaded successfully")
     
+    # End time of the function after the the code to be evaluated
+    end_time = time.time()
+
+    # Time taken in seconds to complete the entire process for performance monitoring.
+    time_taken = end_time - start_time
+    print("Time to complete the load_data function in seconds:", time_taken)
+    
+    # Disable profiling
+    if test=="profile":
+        p.disable()
+
+        # Print the stats
+        p.print_stats()
+
+        # Dump the stats to a file
+        p.dump_stats("capprojresults.prof") 
+    
+    return dataset
+
+def data_visualization(test,loglevel,dataset):
+    
+    #This function provides the data visualiation for the injested data
+    # Start time of the function
+    start_time = time.time()
+        
+    p = cProfile.Profile()
+
+    # Enable profiling for performance monitoring
+    if test=="profile":
+        p.enable()
+    
+    logger = logging.getLogger()
+    if loglevel=="debug":
+        logger.setLevel(logging.DEBUG)
+    elif loglevel=="info":
+        logger.setLevel(logging.INFO)
+    elif loglevel=="warn":
+        logger.setLevel(logging.WARNING)
+    elif loglevel=="error":
+        logger.setLevel(logging.ERROR)
+    elif loglevel=="critical":
+        logger.setLevel(logging.CRITICAL)
+    else:
+        logger.setLevel(logging.INFO)
 
     # draw box and whisker plots
     dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
@@ -75,9 +121,52 @@ def model_predict(test,loglevel):
     scatter_matrix(dataset)
     pyplot.show()
     logger.info("Scatter plot matrix drawn successfully")
+    
+    # End time of the function after the the code to be evaluated
+    end_time = time.time()
 
+    # Time taken in seconds to complete the entire process for performance monitoring.
+    time_taken = end_time - start_time
+    print("Time to complete the data_visualization function in seconds:", time_taken)
+    
+    # Disable profiling
+    if test=="profile":
+        p.disable()
 
-    # Split the validation dataset
+        # Print the stats
+        p.print_stats()
+
+        # Dump the stats to a file
+        p.dump_stats("capprojresults.prof") 
+
+def datavalid_models_predict(test,loglevel,dataset):    
+    
+    #This function compares multiple models and does predictions based on the models
+    
+    # Start time of the function
+    start_time = time.time()
+        
+    p = cProfile.Profile()
+
+    # Enable profiling for performance monitoring
+    if test=="profile":
+        p.enable()
+    
+    logger = logging.getLogger()
+    if loglevel=="debug":
+        logger.setLevel(logging.DEBUG)
+    elif loglevel=="info":
+        logger.setLevel(logging.INFO)
+    elif loglevel=="warn":
+        logger.setLevel(logging.WARNING)
+    elif loglevel=="error":
+        logger.setLevel(logging.ERROR)
+    elif loglevel=="critical":
+        logger.setLevel(logging.CRITICAL)
+    else:
+        logger.setLevel(logging.INFO)
+
+    # Split the validation dataset to keep data seperate
     array = dataset.values
     X = array[:,0:4]
     y = array[:,4]
@@ -148,9 +237,9 @@ def model_predict(test,loglevel):
     # End time of the function after the the code to be evaluated
     end_time = time.time()
 
-    # Time taken in seconds to complete the entire process.
+    # Time taken in seconds to complete the entire process for performance monitoring.
     time_taken = end_time - start_time
-    print("Time to complete the function process in seconds:", time_taken)
+    print("Time to complete the function datavalid_models_predict in seconds:", time_taken)
     
 
     # Disable profiling
@@ -165,9 +254,10 @@ def model_predict(test,loglevel):
     
     logger.info("Model compare and prediction COMPLETE!")
     
-# Unit test api and logging   
-model_predict("false","info")
-model_predict("false","debug")
-model_predict("false","warn")
-model_predict("false","error")
-model_predict("false","critical")
+def data_model_predict():
+    dataset = load_data("false","info")
+    data_visualization("false","info",dataset)
+    datavalid_models_predict("false","info",dataset)
+
+# Run the project 
+data_model_predict()
