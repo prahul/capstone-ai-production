@@ -8,10 +8,12 @@ Project Highlights
 4. There are unit tests to run the script api.
 5. Unit tests for the models.
 6. Run all tests as a single script.
-7. Visualization and comparison using visualization.
-8. Dockerize the projct to be deployed on a container platform.
-9. Mechanism for performance monitoring through process time and profilers and more.
-10. Documentation to run the project using popular Jupyter Notebook or from command line.
+7. Data ingestion as a seperate function.
+8. Visualization and comparison using visualization.
+9. Compare different models and visualization of comparison.
+10. Dockerize the projct to be deployed on a container platform.
+11. Mechanism for performance monitoring through process time and profilers and more.
+12. Documentation to run the project using popular Jupyter Notebook or from command line.
 
 # Run project
 To run the project using Jupyter Notebook, open capstoneproject.ipynb in jupyter notebook and run the same.
